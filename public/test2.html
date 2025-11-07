@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" style="background:#ffffff;">
+<head>
+  <meta charset="utf-8">
+  <title>Lucky Winner — GTC Announcement</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    @media (max-width: 680px){
+      .container{width:100% !important; border-radius:0 !important}
+      .px{padding-left:16px !important; padding-right:16px !important}
+      .h1{font-size:22px !important; line-height:28px !important}
+      .cta{display:block !important; width:100% !important}
+    }
+  </style>
+</head>
+<body style="margin:0; padding:0; background:#ffffff; color:#1e2158;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;">
+    <tr>
+      <td align="center" style="padding:24px 12px;">
+
+        <!-- Card -->
+        <table role="presentation" width="650" cellpadding="0" cellspacing="0" class="container"
+               style="width:650px; max-width:650px; border:1px solid #e8eaf3; border-radius:14px; overflow:hidden; background:#ffffff;">
+
+          <!-- Brand Bar -->
+          <tr>
+            <td align="center" style="padding:18px 16px; background:linear-gradient(135deg,#293794 0%, #000021 100%);">
+              <img src="https://gtcfx-bucket.s3.ap-southeast-1.amazonaws.com/logo-email.jpg"
+                   width="160" alt="GTC" style="display:block; height:auto; border:0;">
+            </td>
+          </tr>
+
+          <!-- Celebration Hero (falling particles) -->
+          <tr>
+            <td align="center" style="padding:0; background:#0f1540;">
+              <!-- Replace CELEBRATION_GIF_URL with a subtle gold particles GIF you host -->
+              <img src="CELEBRATION_GIF_URL"
+                   alt="Celebration"
+                   width="650"
+                   style="display:block; width:100%; max-width:650px; height:auto; border:0;">
+            </td>
+          </tr>
+
+          <!-- Title -->
+          <tr>
+            <td class="px" style="padding:22px 28px 6px;">
+              <h1 class="h1" style="margin:0; font:600 24px/32px Arial, Helvetica, sans-serif; color:#2a2f83; text-align:center;">
+                Congratulations, <span style="color:#b68756;">{{WINNER_NAME}}</span>!
+              </h1>
+            </td>
+          </tr>
+
+          <!-- Subtitle -->
+          <tr>
+            <td class="px" style="padding:6px 28px 12px;">
+              <p style="margin:0; font:400 14px/22px Arial, Helvetica, sans-serif; color:#4D4D70; text-align:center;">
+                You’ve been selected as our <strong>Lucky Winner</strong>. Please review your prize details below.
+              </p>
+            </td>
+          </tr>
+
+          <!-- Divider -->
+          <tr><td style="padding:8px 0 0;"><div style="border-top:1px solid #eef0f6;"></div></td></tr>
+
+          <!-- Prize Details -->
+          <tr>
+            <td class="px" style="padding:16px 28px 8px;">
+              <h3 style="margin:0 0 8px 0; font:600 16px/22px Arial, Helvetica, sans-serif; color:#b68756;">Prize Summary</h3>
+            </td>
+          </tr>
+          <tr>
+            <td class="px" style="padding:0 28px 18px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#fdf6ee; border-radius:10px;">
+                <tr>
+                  <td width="42%" style="padding:12px 14px; font:600 13px Arial, Helvetica, sans-serif; color:#7c4e00;">Prize</td>
+                  <td style="padding:8px 14px;">
+                    <div style="background:#ffffff; border-radius:8px; padding:10px 14px; font:400 14px Arial, Helvetica, sans-serif; color:#000;">
+                      {{PRIZE_NAME}}
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="42%" style="padding:12px 14px; font:600 13px Arial, Helvetica, sans-serif; color:#7c4e00;">Winning Reference</td>
+                  <td style="padding:8px 14px;">
+                    <div style="background:#ffffff; border-radius:8px; padding:10px 14px; font:400 14px Arial, Helvetica, sans-serif; color:#000;">
+                      {{REFERENCE_CODE}}
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="42%" style="padding:12px 14px; font:600 13px Arial, Helvetica, sans-serif; color:#7c4e00;">Announcement Date</td>
+                  <td style="padding:8px 14px;">
+                    <div style="background:#ffffff; border-radius:8px; padding:10px 14px; font:400 14px Arial, Helvetica, sans-serif; color:#000;">
+                      {{ANNOUNCE_DATE}}
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- CTA -->
+          <tr>
+            <td align="center" style="padding: 4px 24px 22px;">
+              <a href="{{CTA_URL}}"
+                 class="cta"
+                 style="background:#b68756; color:#ffffff; text-decoration:none; padding:12px 22px; border-radius:10px; font:700 14px Arial, Helvetica, sans-serif; display:inline-block;">
+                Claim My Prize
+              </a>
+            </td>
+          </tr>
+
+          <!-- Assistance -->
+          <tr>
+            <td class="px" style="padding:0 28px 8px;">
+              <p style="margin:0; font:600 14px/22px Arial, Helvetica, sans-serif; color:#2a2f83;">Need Help?</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="px" style="padding:0 28px 22px;">
+              <p style="margin:0; font:400 13px/21px Arial, Helvetica, sans-serif; color:#4D4D70;">
+                If you have any questions, contact us at
+                <a href="mailto:support@gtcfx.com" style="color:#293794; text-decoration:underline;">support@gtcfx.com</a>.
+              </p>
+            </td>
+          </tr>
+
+          <!-- Footer Divider -->
+          <tr><td style="padding:0;"><div style="border-top:1px solid #eef0f6;"></div></td></tr>
+
+          <!-- Footer -->
+          <tr>
+            <td class="px" style="padding:16px 28px 26px; font:400 11px/18px Arial, Helvetica, sans-serif; color:#666;">
+              Products and services may be restricted in certain jurisdictions. Please ensure you understand the risks before trading.
+              <div style="text-align:center; margin-top:10px; color:#999; font:400 12px Arial, Helvetica, sans-serif;">
+                © 2025 GTC — All Rights Reserved
+              </div>
+            </td>
+          </tr>
+
+        </table>
+        <!-- /Card -->
+
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

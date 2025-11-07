@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" style="background:#ffffff;">
+<head>
+  <meta charset="UTF-8">
+  <title>🎉 You’re Our Lucky Winner!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    /* Petal animation (Apple Mail/iOS Mail support; ignored by most Outlooks) */
+    @keyframes fall {
+      0% { transform: translateY(-60px) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      100% { transform: translateY(500px) rotate(360deg); opacity: 0.9; }
+    }
+    .petal {
+      position:absolute; top:-40px; width:18px; height:18px; border-radius:50% 50% 50% 0;
+       animation: fall linear forwards;
+      filter: drop-shadow(0 1px 1px rgba(0,0,0,.1));
+    }
+    /* Different delays/durations to feel organic */
+    .p1 { left:8%; animation-duration: 6.5s; animation-delay:.1s; }
+    .p2 { left:18%; animation-duration: 7.9s; animation-delay:.6s; }
+    .p3 { left:28%; animation-duration: 6.9s; animation-delay:1.1s; }
+    .p4 { left:40%; animation-duration: 7.2s; animation-delay:.3s; }
+    .p5 { left:52%; animation-duration: 6.7s; animation-delay:.8s; }
+    .p6 { left:64%; animation-duration: 7.6s; animation-delay:1.4s; }
+    .p7 { left:76%; animation-duration: 6.8s; animation-delay:.5s; }
+    .p8 { left:88%; animation-duration: 7.8s; animation-delay:1.0s; }
+    /* Hide in some webmails that strip position:absolute badly */
+    @media screen and (max-width: 480px) {.petal{display:none;}}
+  </style>
+</head>
+<body style="margin:0;padding:0;background:#ffffff;font-family:Arial,Helvetica,sans-serif;color:#1e2158;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#fff;padding:20px 0;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="650" cellpadding="0" cellspacing="0" style="width:650px;max-width:650px;border:1px solid #e6e8ee;border-radius:12px;overflow:hidden;background:#ffffff;position:relative;">
+          <!-- Brand header -->
+          <tr>
+            <td align="center" style="background:linear-gradient(135deg,#293794 0%,#000021 100%);padding:20px;">
+              <img src="https://gtcfx-bucket.s3.ap-southeast-1.amazonaws.com/logo-email.jpg" width="160" alt="GTC Logo" style="display:block;height:auto;border:0;">
+            </td>
+          </tr>
+
+          <!-- GIF hero (fallback for most clients) -->
+          <tr>
+            <td align="center" style="padding:0;">
+              <img src="/congratulations-7600_256.gif" width="650" alt="Celebration" style="display:block;width:100%;max-width:650px;height:200px;">
+            </td>
+          </tr>
+
+          <!-- Live CSS petals layer (Apple Mail/iOS only effectively) -->
+          <tr>
+            <td style="position:relative;height:0;padding:0;margin:0;">
+              <div class="petal p1">🎉</div>
+              <div class="petal p2">🎉</div>
+              <div class="petal p3">🎉</div>
+              <div class="petal p4">🎉</div>
+              <div class="petal p5">🎉</div>
+              <div class="petal p6">🎉</div>
+              <div class="petal p7">🎉</div>
+              <div class="petal p8">🎉</div>
+            </td>
+          </tr>
+
+          <!-- Headline & copy -->
+          <tr>
+            <td align="center" style="padding:24px 24px 8px;font:700 24px/1.35 Arial,Helvetica,sans-serif;color:#2a2f83;">
+              Congratulations, <span style="color:#b68756;">WINNER_NAME</span>! 🌸🎉
+            </td>
+          </tr>
+          <tr>
+            <td align="center" style="padding:0 24px 18px;font:14px Arial,Helvetica,sans-serif;color:#4D4D70;">
+              You’ve been selected as our <strong>Lucky Winner</strong>! Your prize details are below.
+            </td>
+          </tr>
+
+          <!-- Prize card -->
+          <tr><td style="border-top:2px solid #f0f1f6;padding:12px 0;"></td></tr>
+          <tr>
+            <td style="padding:6px 24px 0;">
+              <h3 style="margin:0 0 10px 0;color:#b68756;font-size:18px;">Your Prize</h3>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:0 24px 18px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#fdf6ee;border-radius:10px;">
+                <tr>
+                  <td width="45%" style="padding:14px 14px;color:#7c4e00;font-weight:600;">Prize Amount</td>
+                  <td style="padding:8px 14px;">
+                    <div style="background:#ffffff;border-radius:8px;padding:10px 14px;font-size:14px;color:#000;">PRIZE_AMOUNT</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="45%" style="padding:14px 14px;color:#7c4e00;font-weight:600;">Winning Reference</td>
+                  <td style="padding:8px 14px;">
+                    <div style="background:#ffffff;border-radius:8px;padding:10px 14px;font-size:14px;color:#000;">WIN_REF_CODE</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="45%" style="padding:14px 14px;color:#7c4e00;font-weight:600;">Draw Date</td>
+                  <td style="padding:8px 14px;">
+                    <div style="background:#ffffff;border-radius:8px;padding:10px 14px;font-size:14px;color:#000;">DRAW_DATE</div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- CTAs -->
+          <tr>
+            <td align="center" style="padding: 6px 0 24px;">
+              <a href="PRIMARY_CTA_URL" style="background:#b68756;color:#ffffff;text-decoration:none;padding:12px 20px;border-radius:10px;font-weight:700;display:inline-block;">Claim My Prize</a>
+              &nbsp;&nbsp;
+              <a href="https://www.gtcfx.com" style="background:#ffffff;border:2px solid #b68756;color:#b68756;text-decoration:none;padding:12px 20px;border-radius:10px;font-weight:700;display:inline-block;">Visit Website</a>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr><td style="border-top:2px solid #f0f1f6;padding:12px 0;"></td></tr>
+          <tr>
+            <td style="font:11px Arial,Helvetica,sans-serif;color:#666;padding: 0 24px 28px;line-height:1.55;text-align:left;">
+              Products and services may be restricted in certain jurisdictions. Ensure you understand the risks before trading.
+              <div style="text-align:center;margin-top:12px;color:#999;font-size:12px;">© 2025 GTC — All Rights Reserved</div>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
