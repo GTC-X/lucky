@@ -24,10 +24,10 @@ export default function GTCRegisterWithDesign() {
   return (
     <>
       <Meta
-        title="Get 5,000 USC to Trade. No Deposit Needed!"
-        description="Fill in your details, activate your GTC Cent trading account, and start trading with a 5,000 USC bonus today."
+        title="Register for the Lucky Draw"
+        description="On submit, they get assigned a unique Lucky Number and an OTP is sent to their email for verification."
       />
-      <section className="bg-[url('/new-banner.webp')] bg-cover bg-center h-screen">
+      <section className="bg-[url('/banner22.webp')] bg-cover bg-center h-screen">
         {/* Hero Section with gradient bg, candles overlay, and bottom curve */}
         <section className="relative">
           {/* Gradient base */}
@@ -37,20 +37,20 @@ export default function GTCRegisterWithDesign() {
 
           {/* Content */}
           <div>
-            <div className="mx-auto relative z-10 max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-12 px-4 pt-10 pb-10 lg:pb-20">
+            <div className="mx-auto relative z-10 max-w-6xl grid grid-cols-1 lg:grid-cols-1 gap-12 px-4 pt-10 pb-10 lg:pb-20">
               {/* Right (desktop form card) */}
 
               {isSubmitted ? (
                 <CelebrationPanel name={submittedName || "Trader"} />
               ) : (
                 <div className="">
-                  <div className="flex items-start justify-start w-full gap-4 md:mb-20">
+                  <div className="flex items-center justify-center w-full gap-4 md:mb-20">
                     <Image
                       src="/new-logo.webp"
-                      width={200}
-                      height={72}
+                      width={260}
+                      height={93}
                       alt="GTCFX"
-                      className="lg:w-[200px] lg:h-[72px] md:w-[110px] md:h-[40px] w-[130px] h-[47px] cursor-pointer"
+                      className="lg:w-[260px] lg:h-[93px] md:w-[110px] md:h-[40px] w-[130px] h-[47px] cursor-pointer"
                     />
                   </div>
                   <div className="bg-white max-w-lg mx-auto text-[#4D4D70] rounded-2xl shadow-2xl">

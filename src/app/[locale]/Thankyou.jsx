@@ -1,9 +1,22 @@
 "use client"
+import Image from "next/image";
 const CelebrationPanel = ({ name = "Trader" }) => {
     return (
-        <div
-            className="relative rounded-2xl overflow-hidden"
-            style={{ background: "linear-gradient(135deg, #293794 0%, #000021 100%)" }}
+
+      <>
+        <div className="flex items-center justify-center w-full gap-4 md:mb-10">
+                                <Image
+                                  src="/new-logo.webp"
+                                  width={260}
+                                  height={93}
+                                  alt="GTCFX"
+                                  className="lg:w-[260px] lg:h-[93px] md:w-[110px] md:h-[40px] w-[130px] h-[47px] cursor-pointer"
+                                />
+                              </div>
+
+                                <div
+            className="relative rounded-2xl overflow-hidden max-w-3xl mx-auto shadow-2xl w-full md:w-auto h-[600px]"
+            style={{ background: "linear-gradient(135deg, #23307f 0%, #1d2257 100%)" }}
         >
             {/* soft spotlight */}
             <div
@@ -19,47 +32,66 @@ const CelebrationPanel = ({ name = "Trader" }) => {
                 <div className="sparkles pointer-events-none" />
             </div>
 
-            <div className="relative h-full w-full p-6 md:p-8 flex flex-col justify-center text-white animate-[fadeIn_.5s_ease-out]">
-                {/* animated headline */}
-                <div className="mb-5">
-                    <p className="text-sm tracking-widest opacity-90">THANK YOU</p>
-                    <h1 className="mt-2 text-3xl md:text-5xl font-extrabold leading-tight">
-                        <span className="block text-gradient-shimmer">{name}</span>
-                    </h1>
-                    <p className="mt-3 md:mt-4 text-base md:text-lg opacity-90">
-                        Your request has been received. A confirmation email is on the way.
-                    </p>
-                </div>
+             
 
-                {/* badges */}
-                <div className="grid gap-2 text-sm mt-2">
-                    <div className="inline-flex items-center gap-2">
-                        <span className="inline-block w-2 h-2 rounded-full bg-emerald-400" />
-                        Verification completed successfully
-                    </div>
-                    <div className="inline-flex items-center gap-2">
-                        <span className="inline-block w-2 h-2 rounded-full bg-blue-300" />
-                        Expect a response within 1–2 business days
-                    </div>
-                </div>
+            <div className="relative h-full w-full p-6 md:p-8 flex flex-col justify-center text-white text-center animate-[fadeIn_.5s_ease-out] bg-gradient-to-b from-[#132F47] to-[#000021] rounded-2xl">
+  {/* animated headline */}
+  <div className="mb-5">
+    <p className="text-sm tracking-[0.25em] uppercase text-[#E77831] font-semibold opacity-90">
+      Thank You for Registering!
+    </p>
+   <h1 className="mt-3 text-3xl md:text-5xl font-extrabold leading-tight relative overflow-hidden">
+  <span className="block bg-gradient-to-r from-[#B68756] via-[#E9C891] to-[#B68756] bg-clip-text text-transparent animate-shine">
+    {name}
+  </span>
+</h1>
+    <p className="mt-4 text-base md:text-lg opacity-90 max-w-lg mx-auto">
+      Your registration for the <span className="font-semibold text-[#E77831]">GTC Lucky Draw</span> has been
+      successfully received!  
+      We’ve sent a confirmation email to your inbox containing your <strong>unique Lucky Number</strong>.
+    </p>
+  </div>
 
-                {/* CTA */}
-                <div className="pt-6">
-                    <a
-                        href="https://www.gtcfx.com"
-                        target="_blank"
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 transition"
-                    >
-                        Visit Website
-                        <svg viewBox="0 0 24 24" className="w-4 h-4">
-                            <path
-                                fill="currentColor"
-                                d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3Z"
-                            />
-                        </svg>
-                    </a>
-                </div>
-            </div>
+  {/* celebratory highlights */}
+  <div className="grid gap-3 text-sm mt-6 mx-auto text-left md:text-center">
+    <div className="inline-flex items-center justify-center gap-2">
+      <span className="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+      Entry confirmed successfully 🎉
+    </div>
+    <div className="inline-flex items-center justify-center gap-2">
+      <span className="inline-block w-2.5 h-2.5 rounded-full bg-blue-400 animate-pulse" />
+      Check your email for your Lucky Number ✉️
+    </div>
+    <div className="inline-flex items-center justify-center gap-2">
+      <span className="inline-block w-2.5 h-2.5 rounded-full bg-yellow-400 animate-pulse" />
+      Winners will be announced on <b>7 December 2025</b> 🏆
+    </div>
+  </div>
+
+  {/* CTA */}
+  <div className="pt-8">
+    <a
+      href="https://www.gtcfx.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#E77831] to-[#F29120] text-white font-semibold hover:opacity-90 transition-all duration-300 shadow-lg"
+    >
+      Visit GTC Website
+      <svg
+        viewBox="0 0 24 24"
+        className="w-4 h-4"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M5 12h14M12 5l7 7-7 7" />
+      </svg>
+    </a>
+  </div>
+</div>
+
 
             {/* styles */}
             <style jsx>{`
@@ -124,6 +156,8 @@ const CelebrationPanel = ({ name = "Trader" }) => {
         }
       `}</style>
         </div>
+      </>
+      
     );
 };
 
