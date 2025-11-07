@@ -24,7 +24,7 @@ export async function POST(req) {
       subject:
         reqBody?.locale == "ar"
           ? "احصل على 5,000 USC للتداول. بدون إيداع! | GTC"
-          : `Get 5,000 USC to Trade. No Deposit Needed! | GTC`,
+          : `Confirm your entry: OTP for the GTC Lucky Draw`,
        ...generateEmailContent(reqBody),
     });
 
