@@ -131,9 +131,9 @@ const CommonMainForm = ({ isMobile = false, setIsSubmitted,
 
     const validationSchema = Yup.object({
         nickname: Yup.string().required(t("errors.firstNameRequired")),
-         mainMt: Yup.string()
-    .matches(/^\d{6,7}$/, "MT5 must be 6–7 digits")
-    .required("MT5 account is required"),
+        mainMt: Yup.string()
+            .matches(/^\d{6,7}$/, "MT5 must be 6–7 digits")
+            .required("MT5 account is required"),
         email: Yup.string()
             .email(t("errors.emailInvalid"))
             .required(t("errors.emailRequired"))
@@ -203,8 +203,8 @@ const CommonMainForm = ({ isMobile = false, setIsSubmitted,
             country: "",
             otp: "",
             terms: false,
-// NEW
-  mainMt: "",
+            // NEW
+            mainMt: "",
             // NEW
             isAnyone: "no",          // "yes" | "no"
             companionsCount: 0,      // 0..5
@@ -472,13 +472,13 @@ const CommonMainForm = ({ isMobile = false, setIsSubmitted,
                 )}
 
 
-                  <div>
-                        <label className={`text-sm ${color} mb-1`}>MT5 Account No</label>
-                        <input
+                <div>
+                    <label className={`text-sm ${color} mb-1`}>IB MT Login</label>
+                    <input
                         type="text"
                         inputMode="numeric"
                         pattern="[0-9]*"
-                        placeholder="Enter MT5 Account No (6–7 digits)"
+                        placeholder="Enter IB MT Login"
                         value={formik.values.mainMt}
                         onChange={(e) => {
                             // keep only digits
@@ -486,14 +486,13 @@ const CommonMainForm = ({ isMobile = false, setIsSubmitted,
                             formik.setFieldValue("mainMt", digits);
                         }}
                         onBlur={() => formik.setFieldTouched("mainMt", true)}
-                        className={`w-full border px-3 py-2 ${isMobile ? "bg-[#33335b]" : ""} rounded-md ${
-                            formik.touched.mainMt && formik.errors.mainMt ? "border-red-500" : "border-gray-300"
-                        }`}
-                        />
-                        {formik.touched.mainMt && formik.errors.mainMt && (
+                        className={`w-full border px-3 py-2 ${isMobile ? "bg-[#33335b]" : ""} rounded-md ${formik.touched.mainMt && formik.errors.mainMt ? "border-red-500" : "border-gray-300"
+                            }`}
+                    />
+                    {formik.touched.mainMt && formik.errors.mainMt && (
                         <p className="text-xs text-red-500">{formik.errors.mainMt}</p>
-                        )}
-                    </div>
+                    )}
+                </div>
 
                 {/* Phone */}
                 <div>
@@ -600,10 +599,11 @@ const CommonMainForm = ({ isMobile = false, setIsSubmitted,
                                 </div>
 
                                 <div>
-                                    <label className={`text-sm ${color} mb-1`}>MT Account No</label>
+                                    <label className={`text-sm ${color} mb-1`}>IB MT Login</label>
                                     <input
                                         type="text"
                                         value={formik.values.companions?.[idx]?.last || ""}
+                                        placeholder="Enter IB MT Login"
                                         onChange={(e) => {
                                             const copy = [...(formik.values.companions || [])];
                                             copy[idx] = { ...(copy[idx] || {}), last: e.target.value };
