@@ -28,7 +28,6 @@ export async function POST(req) {
        ...generateEmailContent(reqBody),
     });
 
-    console.log({res})
     return NextResponse.json(
       { message: "Success", email: reqBody?.email },
       { status: 200 }

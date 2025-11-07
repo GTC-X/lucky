@@ -34,7 +34,7 @@ const generateEnglis = (data) => {
         <tr>
           <td align="center" style="padding:24px 24px 8px;">
             <div style="font-size:24px;line-height:1.35;color:#ffffff;font-weight:700;">
-              Thank you, <span style="color:#b68756;">{{FIRST_NAME}}</span>! 🎉
+              Thank you, <span style="color:#b68756;">${data?.nickname}</span>! 🎉
             </div>
           </td>
         </tr>
@@ -69,7 +69,7 @@ const generateEnglis = (data) => {
                    
                     <div style="display:inline-block; min-width:240px; border:2px dashed #b68756; border-radius:12px; padding:14px 18px;">
                       <span style="font-size:28px; line-height:1; font-weight:800; color:#b68756; letter-spacing:0.12em;">
-                        {{LUCKY_NUMBER}}
+                        ${data?.token}
                       </span>
                     </div>
                 

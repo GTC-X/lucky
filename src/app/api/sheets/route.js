@@ -81,11 +81,13 @@ async function safeJson(res) {
 
 export async function GET(req) {
   const url = new URL(req.url);
-  const range = url.searchParams.get("range") || "A1:Z";
-  // token must be in query for doGet
-  const target = `${GAS_URL}?range=${encodeURIComponent(range)}&token=${encodeURIComponent(GAS_SECRET)}`;
-  const res = await fetch(target, { cache: "no-store" });
-  const data = await safeJson(res);
+  const tokenCheck = url.searchParams.get("tokenCheck");
+  if (!tokenCheck) {
+    return NextResponse.json({ ok:false, error:"Provide tokenCheck" }, { status:400 });
+  }
+  const qs = `token=${encodeURIComponent(GAS_SECRET)}&tokenCheck=${encodeURIComponent(tokenCheck)}`;
+  const res = await fetch(`${GAS_URL}?${qs}`, { cache: "no-store" });
+  const data = await res.json();
   return NextResponse.json(data, { status: data?.ok ? 200 : 500 });
 }
 

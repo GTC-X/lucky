@@ -3,7 +3,7 @@
 import { useEffect, useCallback } from "react";
 import Image from "next/image";
 
-export default function CelebrationPanel({ name = "Trader" }) {
+export default function CelebrationPanel({ values }) {
   // Confetti animation using canvas-confetti
   const confettiExplosion = useCallback(async (origin) => {
     const confetti = (await import("canvas-confetti")).default;
@@ -73,10 +73,13 @@ export default function CelebrationPanel({ name = "Trader" }) {
             <p className="text-sm tracking-[0.25em] uppercase text-[#E77831] font-semibold opacity-90">
               Thank You for Registering!
             </p>
+            <p className="text-sm tracking-[0.25em] mt-2 text-left uppercase text-[#fff] font-semibold opacity-90">
+              Dear {values?.nickname||""},
+            </p>
 
             <h1 className="mt-3 text-3xl md:text-5xl font-extrabold leading-tight relative overflow-hidden">
               <span className="block bg-gradient-to-r from-[#B68756] via-[#E9C891] to-[#B68756] bg-clip-text text-transparent animate-shine">
-                {name}
+                {values?.token || ""}
               </span>
             </h1>
 
@@ -126,7 +129,7 @@ export default function CelebrationPanel({ name = "Trader" }) {
               </svg>
             </a>
 
-          
+
           </div>
         </div>
       </div>
