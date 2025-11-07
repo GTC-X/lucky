@@ -70,16 +70,20 @@ export default function CelebrationPanel({ values }) {
         <div className="relative h-full w-full p-6 md:p-8 flex flex-col justify-center text-white text-center bg-gradient-to-b from-[#132F47] to-[#000021] rounded-2xl animate-[fadeIn_.5s_ease-out]">
           {/* Headline */}
           <div className="mb-5">
-            <p className="text-sm tracking-[0.25em] uppercase text-[#E77831] font-semibold opacity-90">
+            <p className="text-sm tracking-[0.25em] pb-5 uppercase text-[#E77831] font-semibold opacity-90">
               Thank You for Registering!
             </p>
             <p className="text-sm tracking-[0.25em] mt-2 text-left uppercase text-[#fff] font-semibold opacity-90">
-              Dear {values?.nickname||""},
+              Dear {values?.nickname||"dsfdasf"},
+            </p>
+
+               <p className="text-base tracking-[0.25em] mt-2 capitalize text-[#fff] font-semibold opacity-90">
+             Your Lucky Number 
             </p>
 
             <h1 className="mt-3 text-3xl md:text-5xl font-extrabold leading-tight relative overflow-hidden">
               <span className="block bg-gradient-to-r from-[#B68756] via-[#E9C891] to-[#B68756] bg-clip-text text-transparent animate-shine">
-                {values?.token || ""}
+                {values?.token || "dasfadsf"}
               </span>
             </h1>
 

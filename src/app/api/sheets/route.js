@@ -68,7 +68,7 @@ export const runtime = "nodejs";
 import { NextResponse } from "next/server";
 
 const GAS_URL =
-  "https://script.google.com/macros/s/AKfycbxrt8tVUpAFGgSVQXqpmvsZkF23VfUymRPvfHUxA8QSimzR3eo-TR4C22IWyNkTLfabeA/exec"; // https://script.google.com/macros/s/XXX/exec
+  "https://script.google.com/macros/s/AKfycbwVpvSXsCXR4HTg3owRaW4odlLCVo1x6t6fhPpGU0Uyn6ccvIH-qCIBIp7KG6pYXXhgPA/exec"; // https://script.google.com/macros/s/XXX/exec
 const GAS_SECRET = "gtcfx_9f3c9dce7";
 
 async function safeJson(res) {
