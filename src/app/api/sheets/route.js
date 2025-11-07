@@ -67,14 +67,17 @@
 export const runtime = "nodejs";
 import { NextResponse } from "next/server";
 
-const GAS_URL = process.env.GAS_SHEETS_URL;     // https://script.google.com/macros/s/XXX/exec
+const GAS_URL =
+  "https://script.google.com/macros/s/AKfycbxrt8tVUpAFGgSVQXqpmvsZkF23VfUymRPvfHUxA8QSimzR3eo-TR4C22IWyNkTLfabeA/exec"; // https://script.google.com/macros/s/XXX/exec
 const GAS_SECRET = "gtcfx_9f3c9dce7";
 
 async function safeJson(res) {
   const ct = res.headers.get("content-type") || "";
   if (!ct.includes("application/json")) {
     const text = await res.text(); // helpful for debugging
-    throw new Error(`Expected JSON, got: ${ct}. Body: ${text.slice(0, 300)}...`);
+    throw new Error(
+      `Expected JSON, got: ${ct}. Body: ${text.slice(0, 300)}...`
+    );
   }
   return res.json();
 }
@@ -83,9 +86,14 @@ export async function GET(req) {
   const url = new URL(req.url);
   const tokenCheck = url.searchParams.get("tokenCheck");
   if (!tokenCheck) {
-    return NextResponse.json({ ok:false, error:"Provide tokenCheck" }, { status:400 });
+    return NextResponse.json(
+      { ok: false, error: "Provide tokenCheck" },
+      { status: 400 }
+    );
   }
-  const qs = `token=${encodeURIComponent(GAS_SECRET)}&tokenCheck=${encodeURIComponent(tokenCheck)}`;
+  const qs = `token=${encodeURIComponent(
+    GAS_SECRET
+  )}&tokenCheck=${encodeURIComponent(tokenCheck)}`;
   const res = await fetch(`${GAS_URL}?${qs}`, { cache: "no-store" });
   const data = await res.json();
   return NextResponse.json(data, { status: data?.ok ? 200 : 500 });

@@ -114,7 +114,7 @@ const CommonMainForm = ({ isMobile = false, setIsSubmitted,
 
     // make a token like "webword12345"
     const makeToken = () =>
-        "web" + String(Math.floor(Math.random() * 100000)).padStart(5, "0");
+        "webword" + String(Math.floor(Math.random() * 100000)).padStart(5, "0");
 
     const isTokenAvailable = async (t) => {
         const r = await fetch(`/api/sheets?tokenCheck=${encodeURIComponent(t)}`, { cache: "no-store" });
