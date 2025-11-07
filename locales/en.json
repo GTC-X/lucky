@@ -59,8 +59,8 @@
       "confirmPassword": "Confirm Password",
       "errors": {
         "fullNameFormat": "Full name can only contain letters.",
-        "firstNameRequired": "First name is required",
-        "lastNameFormat": "Last name can only contain letters.",
+        "firstNameRequired": "Full Name is required", 
+        "lastNameFormat": "Last name can only contain letters.", 
         "lastNameRequired": "Last name is required",
         "emailInvalid": "Invalid email address",
         "emailRequired": "Email is required",
