@@ -131,10 +131,9 @@ const CommonMainForm = ({ isMobile = false, setIsSubmitted,
 
     const validationSchema = Yup.object({
         nickname: Yup.string().required(t("errors.firstNameRequired")),
-        mainMt: Yup.string()
+         mainMt: Yup.string()
     .matches(/^\d{6,7}$/, "MT5 must be 6–7 digits")
     .required("MT5 account is required"),
-
         email: Yup.string()
             .email(t("errors.emailInvalid"))
             .required(t("errors.emailRequired"))
@@ -173,7 +172,6 @@ const CommonMainForm = ({ isMobile = false, setIsSubmitted,
                         .of(
                             Yup.object({
                                 first: Yup.string().required("Full name is required"),
-                                
                                 last: Yup.string()
                                     .matches(/^\d+$/, "Digits only")
                                     .min(6, "MT5 must be 6–7 digits")
@@ -205,8 +203,8 @@ const CommonMainForm = ({ isMobile = false, setIsSubmitted,
             country: "",
             otp: "",
             terms: false,
-             // NEW
-            mainMt: "",
+// NEW
+  mainMt: "",
             // NEW
             isAnyone: "no",          // "yes" | "no"
             companionsCount: 0,      // 0..5
@@ -473,29 +471,31 @@ const CommonMainForm = ({ isMobile = false, setIsSubmitted,
                     </div>
                 )}
 
-                {/* Phone */}
+
                   <div>
-    <label className={`text-sm ${color} mb-1`}>MT5 Account No</label>
-    <input
-      type="text"
-      inputMode="numeric"
-      pattern="[0-9]*"
-      placeholder="Enter MT5 Account No (6–7 digits)"
-      value={formik.values.mainMt}
-      onChange={(e) => {
-        // keep only digits
-        const digits = e.target.value.replace(/\D/g, "");
-        formik.setFieldValue("mainMt", digits);
-      }}
-      onBlur={() => formik.setFieldTouched("mainMt", true)}
-      className={`w-full border px-3 py-2 ${isMobile ? "bg-[#33335b]" : ""} rounded-md ${
-        formik.touched.mainMt && formik.errors.mainMt ? "border-red-500" : "border-gray-300"
-      }`}
-    />
-    {formik.touched.mainMt && formik.errors.mainMt && (
-      <p className="text-xs text-red-500">{formik.errors.mainMt}</p>
-    )}
-  </div>
+                        <label className={`text-sm ${color} mb-1`}>MT5 Account No</label>
+                        <input
+                        type="text"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
+                        placeholder="Enter MT5 Account No (6–7 digits)"
+                        value={formik.values.mainMt}
+                        onChange={(e) => {
+                            // keep only digits
+                            const digits = e.target.value.replace(/\D/g, "");
+                            formik.setFieldValue("mainMt", digits);
+                        }}
+                        onBlur={() => formik.setFieldTouched("mainMt", true)}
+                        className={`w-full border px-3 py-2 ${isMobile ? "bg-[#33335b]" : ""} rounded-md ${
+                            formik.touched.mainMt && formik.errors.mainMt ? "border-red-500" : "border-gray-300"
+                        }`}
+                        />
+                        {formik.touched.mainMt && formik.errors.mainMt && (
+                        <p className="text-xs text-red-500">{formik.errors.mainMt}</p>
+                        )}
+                    </div>
+
+                {/* Phone */}
                 <div>
                     <label className={`text-sm ${color} mb-1`}>{t("phone")}</label>
                     <PhoneInput
