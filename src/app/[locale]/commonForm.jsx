@@ -252,7 +252,7 @@ const CommonMainForm = ({ isMobile = false, setIsSubmitted,
                 clicked()
             }}>Submit</button> */}
 
-            <form onSubmit={formik.handleSubmit} className="space-y-4">
+            <form onSubmit={formik.handleSubmit} className="space-y-4 p-6">
                 {/* First + Last Name */}
                 <div className="grid sm:grid-cols-2 gap-4">
                     <div>
@@ -432,7 +432,7 @@ const CommonMainForm = ({ isMobile = false, setIsSubmitted,
                         className="h-5 w-5"
                     />
                     <label htmlFor="terms" className="text-xs">
-                        By submitting your application you confirm that you have read, understood and agreed to all the <a className="text-secondary" data-v-30779926="" href="https://www.gtcfx.com/terms-and-conditions" target="_blank" class="link">Terms And Conditions</a>, <a className="text-secondary" data-v-30779926="" href="https://gtcfx-bucket.s3.ap-southeast-1.amazonaws.com/pdf-files/5000USC-T%26C.pdf" target="_blank" class="link">Bonus Terms and Conditions</a> and <a className="text-secondary" data-v-30779926="" href="https://www.gtcfx.com/legal-policies-client-agreements" target="_blank" class="link">Client Agreement .</a>
+                        By submitting your application you confirm that you have read, understood and agreed to all the <a className="text-secondary" data-v-30779926="" href="https://www.gtcfx.com/terms-and-conditions" target="_blank" >Terms And Conditions</a>, <a className="text-secondary" data-v-30779926="" href="https://gtcfx-bucket.s3.ap-southeast-1.amazonaws.com/pdf-files/5000USC-T%26C.pdf" target="_blank">Bonus Terms and Conditions</a> and <a className="text-secondary" data-v-30779926="" href="https://www.gtcfx.com/legal-policies-client-agreements" target="_blank">Client Agreement .</a>
                     </label>
                 </div>
                 {formik.touched.terms && formik.errors.terms && (
