@@ -20,28 +20,21 @@ const generateEnglis = (data) => {
     Congratulations! A special surprise is waiting inside—open to see the big reveal 🌸🎊
   </div>
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#fff;padding:20px 0;">
-    <tr>
-      <td align="center">
-        <table role="presentation" width="650" cellpadding="0" cellspacing="0" class="wrap" style="width:650px;max-width:650px;border:1px solid #e6e8ee;border-radius:12px;overflow:hidden;background:#ffffff;">
-          <!-- Brand Bar -->
-          <tr>
-            <td align="center" style="background:linear-gradient(135deg,#293794 0%,#000021 100%);padding:20px;">
-              <img src="https://gtcfx-bucket.s3.ap-southeast-1.amazonaws.com/logo-email.jpg" width="160" alt="GTC Logo" style="display:block;border:0;outline:none;text-decoration:none;height:auto;">
-            </td>
-          </tr>
+   <tr>
+        <td align="center">
 
-          <!-- Celebration GIF HERO -->
-          <tr>
-            <td align="center" style="padding:0;">
-              <!-- Replace with your confetti/flowers burst GIF -->
-              <img src="YOUR_GIF_URL" width="650" alt="🎉 Celebration — Winner!" style="display:block;width:100%;max-width:650px;height:auto;">
-            </td>
-          </tr>
+          <table width="650" cellpadding="0" cellspacing="0" style="border:1px solid #e0e0e0; border-radius:8px;padding:30px; padding-top: 20px; background-color: #182063;">
+            <tr>
+              <td align="center" style="padding-bottom: 20px;">
+                <img src="https://gtcfx-bucket.s3.ap-southeast-1.amazonaws.com/social/new-logo.webp" alt="GTC Logo" style="width: 160px;" />
+              </td>
+            </tr>
+
 
           <!-- Headline -->
           <tr>
             <td align="center" style="padding:24px 24px 8px;">
-              <div style="font-size:24px;line-height:1.35;color:#2a2f83;font-weight:700;">
+              <div style="font-size:24px;line-height:1.35;color:#fff;font-weight:700;">
                 Congratulations, <span style="color:#b68756;">WINNER_NAME</span>! 🌸🎉
               </div>
             </td>
@@ -50,7 +43,7 @@ const generateEnglis = (data) => {
           <!-- Subtext -->
           <tr>
             <td align="center" style="padding:0 24px 12px;">
-              <div style="font-size:14px;color:#4D4D70;">
+              <div style="font-size:14px;color:#ffff;">
                 You’ve been selected as our <strong>Lucky Winner</strong>! We’re thrilled to announce your prize below.
               </div>
             </td>
@@ -61,12 +54,12 @@ const generateEnglis = (data) => {
 
           <!-- Prize Card -->
           <tr>
-            <td style="padding: 6px 24px 0;">
+            <td>
               <h3 style="margin:0 0 10px 0;color:#b68756;font-size:18px;">Your Prize</h3>
             </td>
           </tr>
           <tr>
-            <td style="padding: 0 24px 18px;">
+            <td>
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#fdf6ee;border-radius:10px;">
                 <tr>
                   <td width="45%" style="padding:14px 14px;color:#7c4e00;font-weight:600;">Prize Amount</td>
@@ -92,7 +85,7 @@ const generateEnglis = (data) => {
 
           <!-- Next Steps -->
           <tr>
-            <td style="padding: 6px 24px 0;">
+            <td style="padding: 12px 0 0px;">
               <h3 style="margin:0 0 10px 0;color:#b68756;font-size:18px;">What Happens Next?</h3>
             </td>
           </tr>
@@ -100,99 +93,113 @@ const generateEnglis = (data) => {
             <td style="padding:0 24px 18px;">
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
                 <tr>
-                  <td style="font-size:14px;color:#4D4D70;padding:4px 0;">✅ Our team will verify your details within <strong>1–2 business days</strong>.</td>
+                  <td style="font-size:14px;color:#ffff;padding:4px 0;">✅ Our team will verify your details within <strong>1–2 business days</strong>.</td>
                 </tr>
                 <tr>
-                  <td style="font-size:14px;color:#4D4D70;padding:4px 0;">📧 Keep an eye on your email for a quick confirmation.</td>
+                  <td style="font-size:14px;color:#ffff;padding:4px 0;">📧 Keep an eye on your email for a quick confirmation.</td>
                 </tr>
                 <tr>
-                  <td style="font-size:14px;color:#4D4D70;padding:4px 0;">🧾 You may be asked to provide ID/eligibility confirmation (standard process).</td>
+                  <td style="font-size:14px;color:#ffff;padding:4px 0;">🧾 You may be asked to provide ID/eligibility confirmation (standard process).</td>
                 </tr>
               </table>
             </td>
           </tr>
 
-          <!-- CTAs -->
-          <tr>
-            <td align="center" style="padding: 6px 0 24px;">
-              <table role="presentation" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td align="center" style="padding:0 8px;">
-                    <a href="PRIMARY_CTA_URL"
-                       style="background:#b68756;color:#ffffff;text-decoration:none;padding:12px 20px;border-radius:10px;font-weight:700;display:inline-block;">
-                      Claim My Prize
-                    </a>
-                  </td>
-                  <td align="center" style="padding:0 8px;">
-                    <a href="https://www.gtcfx.com"
-                       style="background:#ffffff;border:2px solid #b68756;color:#b68756;text-decoration:none;padding:12px 20px;border-radius:10px;font-weight:700;display:inline-block;">
-                      Visit Website
-                    </a>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
+            <tr>
+              <td style="font-size:14px;color:#ffff;padding-bottom:20px;">
+                If you need any help, our Customer Care team is available via Live Chat on our website or by email at support@gtcfx.com.
+              </td>
+            </tr>
 
-          <!-- Help -->
-          <tr>
-            <td style="padding: 0 24px 10px;">
-              <div style="font-size:16px;color:#2a2f83;font-weight:700;">Need Help?</div>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding: 0 24px 22px;">
-              <div style="font-size:14px;color:#4D4D70;line-height:1.6;">
-                Questions? Contact us at
-                <a href="mailto:support@gtcfx.com" style="color:#2a2f83;text-decoration:none;">support@gtcfx.com</a>.
-                We’re here for you.
-              </div>
-            </td>
-          </tr>
+            <tr>
+              <td style="font-size:14px;color:#ffff;padding-bottom:30px;">
+                Have a great day,<br>Your GTC Family
+              </td>
+            </tr>
+            <tr><td style="border-top: 2px solid #e0e0e0; padding: 15px 0;"></td></tr>
 
-          <!-- Divider -->
-          <tr><td style="border-top:2px solid #f0f1f6;padding:12px 0;"></td></tr>
+
 
           <!-- Contact & Socials -->
           <tr>
-            <td style="padding: 0 24px 14px;">
-              <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
-                <tr>
-                  <td align="left">
-                    <img src="https://gtcfx-bucket.s3.ap-southeast-1.amazonaws.com/logo-email.jpg" width="160" alt="GTC Logo" style="display:block;height:auto;">
-                  </td>
-                  <td align="right" style="font-size:13px;color:#192055;line-height:22px;">
-                    📞 +971 800 667788<br/>
-                    ✉️ <a href="mailto:support@gtcfx.com" style="color:#192055;text-decoration:none;">support@gtcfx.com</a>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
+              <td style="padding-top: 0px;">
+                <table width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="left">
+                      <img src="https://gtcfx-bucket.s3.ap-southeast-1.amazonaws.com/social/new-logo.webp" alt="GTC Logo" style="width: 160px;" />
+                    </td>
+                    <td align="right" style="font-size: 13px; color: #fff; line-height: 25px;">
+                      📞 Phone: +971 800 667788<br/>
+                      ✉️ Email: <a href="mailto:support@gtcfx.com" style="color: #fff; text-decoration: none;">support@gtcfx.com</a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
 
-          <tr>
-            <td align="center" style="padding: 0 24px 12px;">
-              <table align="center" cellpadding="0" cellspacing="0" role="presentation">
-                <tr>
-                  <td style="padding:0 5px;"><a href="https://www.facebook.com/GTCFXGlobalTradeCapital" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="20" height="20" alt="Facebook" style="display:block;"></a></td>
-                  <td style="padding:0 5px;"><a href="https://x.com/GTC_fx" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/3670/3670151.png" width="20" height="20" alt="X" style="display:block;"></a></td>
-                  <td style="padding:0 5px;"><a href="https://www.youtube.com/channel/UCnKWakjm1b9Bm63xgwNFXHA" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" width="20" height="20" alt="YouTube" style="display:block;"></a></td>
-                  <td style="padding:0 5px;"><a href="https://linkedin.com/company/gtcfx-official" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" width="20" height="20" alt="LinkedIn" style="display:block;"></a></td>
-                  <td style="padding:0 5px;"><a href="https://www.instagram.com/gtcfxofficial/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="20" height="20" alt="Instagram" style="display:block;"></a></td>
-                  <td style="padding:0 5px;"><a href="https://api.whatsapp.com/send/?phone=448000488461&text&type=phone_number&app_absent=0" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="20" height="20" alt="WhatsApp" style="display:block;"></a></td>
-                  <td style="padding:0 5px;"><a href="https://t.me/gtc_vip_signal" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" width="20" height="20" alt="Telegram" style="display:block;"></a></td>
-                </tr>
-              </table>
-            </td>
-          </tr>
+      <tr>
+  <td style="font-size: 11px; color: #ccc; padding: 20px 0px; line-height: 1.5;">
 
-          <!-- Legal -->
-          <tr>
-            <td style="font-size:11px;color:#666;padding: 0 24px 28px;line-height:1.55;text-align:left;">
-              Products and services may be restricted in certain jurisdictions. Please ensure you understand the risks before trading. If unsure, seek independent advice.
-              <div style="text-align:center;margin-top:12px;color:#999;font-size:12px;">© 2025 GTC — All Rights Reserved</div>
-            </td>
-          </tr>
+    This website is owned and operated by GTC Global Ltd, a limited company incorporated in Mauritius (company number: C188049) and licensed by the Financial Services Commission, Mauritius (No. GB22200292) to trade as an SEC-2.1B Investment Dealer. Registered Address: Cyberati Lounge, Ground Floor, The Catalyst, Silicon Avenue, 40 Cybercity, 72201 Ebene, Republic of Mauritius. The financial services and products promoted on this website are offered by GTC Global Ltd and GTC Global Trade Capital Co. Limited, a company authorised by the Vanuatu Financial Services Commission of the Republic of Vanuatu, Company License Number: 40354.
+
+  </td>
+</tr>
+
+<!-- Social Media Footer -->
+<tr>
+  <td style="padding-top: 30px; text-align: center;">
+    <table align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td style="padding: 0 5px;">
+          <a href="https://www.facebook.com/GTCFXGlobalTradeCapital" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" width="20" height="20" style="display:block;">
+          </a>
+        </td>
+        <td style="padding: 0 5px;">
+          <a href="https://x.com/GTC_fx" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/3670/3670151.png" alt="X" width="20" height="20" style="display:block;">
+          </a>
+        </td>
+        <td style="padding: 0 5px;">
+          <a href="https://www.youtube.com/channel/UCnKWakjm1b9Bm63xgwNFXHA" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" width="20" height="20" style="display:block;">
+          </a>
+        </td>
+        <td style="padding: 0 5px;">
+          <a href="https://linkedin.com/company/gtcfx-official" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="LinkedIn" width="20" height="20" style="display:block;">
+          </a>
+        </td>
+        <td style="padding: 0 5px;">
+          <a href="https://www.instagram.com/gtcfxofficial/" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="20" height="20" style="display:block;">
+          </a>
+        </td>
+        <td style="padding: 0 5px;">
+          <a href="https://api.whatsapp.com/send/?phone=448000488461&text&type=phone_number&app_absent=0" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" width="20" height="20" style="display:block;">
+          </a>
+        </td>
+        <td style="padding: 0 5px;">
+          <a href="https://t.me/gtc_vip_signal" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" width="20" height="20" style="display:block;">
+          </a>
+        </td>
+        <td style="padding: 0 5px;">
+          <a href="GTCFX - Global Trade Capital on TikTok" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" width="20" height="20" style="display:block;">
+          </a>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+
+<tr>
+  <td align="center" style="font-size: 12px; color: #ccc; padding-top: 15px;">
+    &copy; Copyright 2025 GTCFX – All Rights Reserved
+  </td>
+</tr>
 
         </table>
       </td>
@@ -200,7 +207,6 @@ const generateEnglis = (data) => {
   </table>
 </body>
 </html>
-
       
       `;
 };

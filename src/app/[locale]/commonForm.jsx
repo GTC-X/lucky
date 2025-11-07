@@ -231,26 +231,65 @@ const CommonMainForm = ({ isMobile = false, setIsSubmitted,
     };
 
     const color = isMobile ? "text-[#fff]" : "text-[#666684]"
+
     const clicked = async () => {
-        await fetch("/api/sheets", {
+        const values = [[
+            "Adeel", "Nazeer", "adeelcomsats@gmail.com", "+923136998988", "Pakistan", "WhatsApp", "token"
+        ]];
+
+        const res = await fetch("/api/sheets", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                range: "Sheet1", // or omit to use Sheet1
-                values: [
-                    ["Name", "Email", "Created At"],
-                    ["Mona", "mona@example.com", new Date().toLocaleString()],
-                ],
-            }),
+            body: JSON.stringify({ values }),
         });
 
+        const json = await res.json();
+        if (!json.ok) {
+            if (json.code === "INVALID_EMAIL_PLUS") {
+                alert("Email cannot contain '+' in the local part.");
+                return;
+            }
+            if (json.code === "DUPLICATE_EMAIL") {
+                alert("This email already exists.");
+                return;
+            }
+            alert(json.error || "Failed to save");
+            return;
+        }
+
+        console.log("Saved row:", json.row);
+    };
+
+    // const clicked = async () => {
+    //     await fetch("/api/sheets", {
+    //         method: "POST",
+    //         headers: { "Content-Type": "application/json" },
+    //         body: JSON.stringify({
+    //             action: "append",
+    //             range: "B2",
+    //             values: [["Adeel", "Nazeer","adeelcomsats070@gmail.com","+923136998988","pakistan","whatsapp"]],
+    //         }),
+    //     });
+
+
+    // }
+
+    const getData = async () => {
+        const res = await fetch("/api/sheets", { cache: "no-store" });
+        const json = await res.json(); // { ok, values }
+
+        console.log({ json })
     }
 
     return (
         <>
             {/* <button onClick={() => {
                 clicked()
-            }}>Submit</button> */}
+            }}>Submit</button>
+            <button className=" ml-5" onClick={() => {
+                getData()
+            }}>get</button> */}
+
 
             <form onSubmit={formik.handleSubmit} className="space-y-4 p-6">
                 {/* First + Last Name */}

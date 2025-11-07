@@ -15,8 +15,9 @@ export default function GTCRegisterWithDesign() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submittedName, setSubmittedName] = useState("");
 
-    const boxStyle = {
-    background: "linear-gradient(to bottom, rgba(182,135,86,.65) 40%, rgba(5,3,49,1) 60%)",
+  const boxStyle = {
+    background:
+      "linear-gradient(to bottom, rgba(182,135,86,.65) 40%, rgba(5,3,49,1) 60%)",
     borderRadius: "8px",
   };
 
@@ -26,54 +27,49 @@ export default function GTCRegisterWithDesign() {
         title="Get 5,000 USC to Trade. No Deposit Needed!"
         description="Fill in your details, activate your GTC Cent trading account, and start trading with a 5,000 USC bonus today."
       />
-      <section className="bg-[url('/new-banner.webp')] bg-cover bg-center h-screen"
-   
-      >
-
+      <section className="bg-[url('/new-banner.webp')] bg-cover bg-center h-screen">
         {/* Hero Section with gradient bg, candles overlay, and bottom curve */}
         <section className="relative">
           {/* Gradient base */}
-    
 
           {/* Candles image on the right */}
-          <div
-           
-          />
+          <div />
 
           {/* Content */}
-          <div >
+          <div>
             <div className="mx-auto relative z-10 max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-12 px-4 pt-10 pb-10 lg:pb-20">
-         
-                  
-         
               {/* Right (desktop form card) */}
-              <div className="">
 
-                 <div className="flex items-start justify-start w-full gap-4 md:mb-20">
-                                    <Image
-                                        src="/new-logo.webp"
-                                        width={200}
-                                        height={72}
-                                        alt="GTCFX"
-                                        className="lg:w-[200px] lg:h-[72px] md:w-[110px] md:h-[40px] w-[130px] h-[47px] cursor-pointer"
-                                    />
-                                </div>
-                <div className="bg-white max-w-lg mx-auto text-[#4D4D70] rounded-2xl shadow-2xl">
-        <div className="relative py-[1px] px-[1px]" style={boxStyle}>
-          <h2 className="text-center py-4 bg-gradient-to-b from-[#202d7bdb] via-[#050331] to-[#050331] rounded-t-xl rounded-b-xl text-lg  text-white font-semibold capitalize">Please provide your details</h2>
-        </div>
-                  <CommonMainForm
-                    zapierUrl="https://hooks.zapier.com/hooks/catch/16420445/umhcnx7/"
-                    successPath="/success"
-                    setIsSubmitted={setIsSubmitted}
-                    setSubmittedName={setSubmittedName}
-                  />
-                </div>
-              </div>
               {isSubmitted ? (
                 <CelebrationPanel name={submittedName || "Trader"} />
               ) : (
-                <div className="hidden md:block" />
+                <div className="">
+                  <div className="flex items-start justify-start w-full gap-4 md:mb-20">
+                    <Image
+                      src="/new-logo.webp"
+                      width={200}
+                      height={72}
+                      alt="GTCFX"
+                      className="lg:w-[200px] lg:h-[72px] md:w-[110px] md:h-[40px] w-[130px] h-[47px] cursor-pointer"
+                    />
+                  </div>
+                  <div className="bg-white max-w-lg mx-auto text-[#4D4D70] rounded-2xl shadow-2xl">
+                    <div
+                      className="relative py-[1px] px-[1px]"
+                      style={boxStyle}
+                    >
+                      <h2 className="text-center py-4 bg-gradient-to-b from-[#202d7bdb] via-[#050331] to-[#050331] rounded-t-xl rounded-b-xl text-lg  text-white font-semibold capitalize">
+                        Please provide your details
+                      </h2>
+                    </div>
+                    <CommonMainForm
+                      zapierUrl="https://hooks.zapier.com/hooks/catch/16420445/umhcnx7/"
+                      successPath="/success"
+                      setIsSubmitted={setIsSubmitted}
+                      setSubmittedName={setSubmittedName}
+                    />
+                  </div>
+                </div>
               )}
             </div>
           </div>
