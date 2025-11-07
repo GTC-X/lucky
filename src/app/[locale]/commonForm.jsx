@@ -292,6 +292,9 @@ const CommonMainForm = ({ isMobile = false, setIsSubmitted,
 
 
             <form onSubmit={formik.handleSubmit} className="space-y-4 p-6">
+
+                <p className="text-xs text-red-600">Please double-check your email address & phone number before submitting the form.
+We’ll verify both details before sending you your lucky number.</p>
                 {/* First + Last Name */}
                 <div className="grid sm:grid-cols-2 gap-4">
                     <div>
