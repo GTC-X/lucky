@@ -112,15 +112,23 @@ const CommonMainForm = ({ isMobile = false, setIsSubmitted,
         timeout: 15000,
     });
 
-    // generate password
-    const generatePassword = (length = 12) => {
-        const chars =
-            "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
-        return Array.from(
-            { length },
-            () => chars[Math.floor(Math.random() * chars.length)]
-        ).join("");
+    const makeToken = () =>
+        "webword" + String(Math.floor(Math.random() * 100000)).padStart(5, "0");
+
+    const isTokenAvailable = async (t) => {
+        const r = await fetch(`/api/sheets?tokenCheck=${encodeURIComponent(t)}`, { cache: "no-store" });
+        const { ok, formatOk, available } = await r.json();
+        return ok && formatOk && available;
     };
+
+    const emailExists = async (email) => {
+        const r = await fetch(`/api/sheets?email=${encodeURIComponent(email)}`, { cache: "no-store" });
+        const { ok, exists } = await r.json();
+        return ok && exists;
+    };
+
+
+
 
     // formik setup
     const formik = useFormik({
@@ -233,31 +241,41 @@ const CommonMainForm = ({ isMobile = false, setIsSubmitted,
     const color = isMobile ? "text-[#fff]" : "text-[#666684]"
 
     const clicked = async () => {
-        const values = [[
-            "Adeel", "Nazeer", "adeelcomsats@gmail.com", "+923136998988", "Pakistan", "WhatsApp", "token"
-        ]];
+        let token = makeToken();
 
+        // // ensure token is free
+        // for (let tries = 0; tries < 10; tries++) {
+        //     if (await isTokenAvailable(token)) break;
+        //     token = makeToken();
+        // }
+
+        // // optional: ensure email not used (your rule)
+        const email = "adeelcomsats07000@gmail.com";
+        // if (await emailExists(email)) {
+        //     alert("Email already exists.");
+        //     return;
+        // }
+
+        // append (your columns must match header order)
         const res = await fetch("/api/sheets", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ values }),
+            body: JSON.stringify({
+                withObject: true,
+                values: [[
+                    "Adeel", "Nazeer", email, "+923136998988", "Pakistan", "WhatsApp", token
+                ]],
+            }),
         });
 
         const json = await res.json();
         if (!json.ok) {
-            if (json.code === "INVALID_EMAIL_PLUS") {
-                alert("Email cannot contain '+' in the local part.");
-                return;
-            }
-            if (json.code === "DUPLICATE_EMAIL") {
-                alert("This email already exists.");
-                return;
-            }
-            alert(json.error || "Failed to save");
+            alert(json.error || "Failed to save.");
             return;
         }
 
-        console.log("Saved row:", json.row);
+        console.log("Saved:", json.row || json.rowIndex);
+        console.log("Your token:", token);
     };
 
     // const clicked = async () => {
@@ -283,12 +301,12 @@ const CommonMainForm = ({ isMobile = false, setIsSubmitted,
 
     return (
         <>
-            {/* <button onClick={() => {
+            <button onClick={() => {
                 clicked()
             }}>Submit</button>
             <button className=" ml-5" onClick={() => {
                 getData()
-            }}>get</button> */}
+            }}>get</button>
 
 
             <form onSubmit={formik.handleSubmit} className="space-y-4 p-6">
