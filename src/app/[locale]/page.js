@@ -27,7 +27,7 @@ export default function GTCRegisterWithDesign() {
         title="Register for the Lucky Draw"
         description="On submit, they get assigned a unique Lucky Number and an OTP is sent to their email for verification."
       />
-      <section className="bg-[url('/banner22.webp')] bg-cover bg-center h-screen">
+      <section className="bg-[url('/banner44.webp')] bg-cover bg-center h-screen">
         {/* Hero Section with gradient bg, candles overlay, and bottom curve */}
         <section className="relative">
           {/* Gradient base */}

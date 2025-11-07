@@ -282,8 +282,8 @@ const CommonMainForm = ({ isMobile = false, setIsSubmitted,
         <>
             <form onSubmit={formik.handleSubmit} className="space-y-4 p-6">
 
-                <p className="text-xs text-red-600">Please double-check your email address & phone number before submitting the form.
-                    We’ll verify both details before sending you your lucky number.</p>
+                <p className="text-xs text-red-600">Please ensure your email and phone number are correct before submitting.
+Both details will be verified before your lucky number and award are issued.</p>
                 {/* First + Last Name */}
                 <div className="grid sm:grid-cols-2 gap-4">
                     <div>
