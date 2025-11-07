@@ -112,22 +112,26 @@ const CommonMainForm = ({ isMobile = false, setIsSubmitted,
         timeout: 15000,
     });
 
+    // make a token like "webword12345"
     const makeToken = () =>
         "webword" + String(Math.floor(Math.random() * 100000)).padStart(5, "0");
 
     const isTokenAvailable = async (t) => {
         const r = await fetch(`/api/sheets?tokenCheck=${encodeURIComponent(t)}`, { cache: "no-store" });
         const { ok, formatOk, available } = await r.json();
-        return ok && formatOk && available;
-    };
-
-    const emailExists = async (email) => {
-        const r = await fetch(`/api/sheets?email=${encodeURIComponent(email)}`, { cache: "no-store" });
-        const { ok, exists } = await r.json();
-        return ok && exists;
+        return !!ok && !!formatOk && !!available;
     };
 
 
+
+    const getUniqueToken = async (maxTries = 10) => {
+        for (let i = 0; i < maxTries; i++) {
+            const candidate = makeToken();
+            const ok = await isTokenAvailable(candidate);
+            if (ok) return candidate;
+        }
+        throw new Error("Token check kept failing. Verify /api/sheets GET and 'token' header.");
+    };
 
 
     // formik setup
@@ -181,15 +185,47 @@ const CommonMainForm = ({ isMobile = false, setIsSubmitted,
         }),
         onSubmit: async (values) => {
             setLoading(true)
+            const token = await getUniqueToken();
+
             try {
-                await axios.post("https://hooks.zapier.com/hooks/catch/16420445/uskukap/", JSON.stringify(values));
+
+                const row = [
+                    values?.nickname,                      // firstName
+                    values?.last_name,                     // lastName
+                    values?.email, // email
+                    values?.phone,              // phone
+                    values?.country,                   // country
+                    values?.preferredMethod,                   // source
+                    token                         // token (last column named 'token')
+                ];
+
+                // 4) save to sheet (POST just appends; no server validation)
+                const res = await fetch("/api/sheets", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ withObject: true, values: [row] }),
+                });
+
+                const json = await res.json();
+                if (!json.ok) {
+                    toast.error(json.error || "Failed to save.");
+                    return;
+                }
+                await axios.post("https://hooks.zapier.com/hooks/catch/16420445/uskukap/", JSON.stringify({ ...values, token: token }));
                 await axios.post("/api/email", JSON.stringify({
                     ...values,
-                    locale
+                    locale,
+                    token: token
                 }));
+
+                toast.success(`Saved! Your token: ${token}`);
                 // inside onSubmit success block (after both requests resolve)
                 toast.success(t("thankYou1"));
-                setSubmittedName(values.nickname || "Trader");
+                setSubmittedName(st => ({
+                    ...st,
+                    ...values,
+                    token: token
+                }));
                 setIsSubmitted(true);             // ← show right-side thank-you
                 formik.resetForm();
                 setShowOtp(false);
@@ -240,79 +276,14 @@ const CommonMainForm = ({ isMobile = false, setIsSubmitted,
 
     const color = isMobile ? "text-[#fff]" : "text-[#666684]"
 
-    const clicked = async () => {
-        let token = makeToken();
 
-        // // ensure token is free
-        // for (let tries = 0; tries < 10; tries++) {
-        //     if (await isTokenAvailable(token)) break;
-        //     token = makeToken();
-        // }
-
-        // // optional: ensure email not used (your rule)
-        const email = "adeelcomsats07000@gmail.com";
-        // if (await emailExists(email)) {
-        //     alert("Email already exists.");
-        //     return;
-        // }
-
-        // append (your columns must match header order)
-        const res = await fetch("/api/sheets", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                withObject: true,
-                values: [[
-                    "Adeel", "Nazeer", email, "+923136998988", "Pakistan", "WhatsApp", token
-                ]],
-            }),
-        });
-
-        const json = await res.json();
-        if (!json.ok) {
-            alert(json.error || "Failed to save.");
-            return;
-        }
-
-        console.log("Saved:", json.row || json.rowIndex);
-        console.log("Your token:", token);
-    };
-
-    // const clicked = async () => {
-    //     await fetch("/api/sheets", {
-    //         method: "POST",
-    //         headers: { "Content-Type": "application/json" },
-    //         body: JSON.stringify({
-    //             action: "append",
-    //             range: "B2",
-    //             values: [["Adeel", "Nazeer","adeelcomsats070@gmail.com","+923136998988","pakistan","whatsapp"]],
-    //         }),
-    //     });
-
-
-    // }
-
-    const getData = async () => {
-        const res = await fetch("/api/sheets", { cache: "no-store" });
-        const json = await res.json(); // { ok, values }
-
-        console.log({ json })
-    }
 
     return (
         <>
-            <button onClick={() => {
-                clicked()
-            }}>Submit</button>
-            <button className=" ml-5" onClick={() => {
-                getData()
-            }}>get</button>
-
-
             <form onSubmit={formik.handleSubmit} className="space-y-4 p-6">
 
                 <p className="text-xs text-red-600">Please double-check your email address & phone number before submitting the form.
-We’ll verify both details before sending you your lucky number.</p>
+                    We’ll verify both details before sending you your lucky number.</p>
                 {/* First + Last Name */}
                 <div className="grid sm:grid-cols-2 gap-4">
                     <div>
