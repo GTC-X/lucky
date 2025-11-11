@@ -73,7 +73,7 @@ export default function CelebrationPanel({ values }) {
             <p className="text-sm tracking-[0.25em] pb-5 uppercase text-[#E77831] font-semibold opacity-90">
               Thank You for Registering!
             </p>
-            <p className="text-sm tracking-[0.25em] mt-2 text-left uppercase text-[#fff] font-semibold opacity-90">
+            <p className="text-xl font-semibold tracking-[0.25em] mt-2 text-center uppercase text-[#fff] opacity-90 py-5">
               Dear {values?.nickname||"dsfdasf"},
             </p>
 
@@ -82,14 +82,14 @@ export default function CelebrationPanel({ values }) {
             </p>
 
             <h1 className="mt-3 text-3xl md:text-5xl font-extrabold leading-tight relative overflow-hidden">
-              <span className="block bg-gradient-to-r from-[#B68756] via-[#E9C891] to-[#B68756] bg-clip-text text-transparent animate-shine">
+              <span className="block bg-gradient-to-r from-[#E77831] via-[#e6e6e6] to-[#E77831] bg-clip-text text-transparent animate-shine uppercase"> 
                 {values?.token || "dasfadsf"}
               </span>
             </h1>
 
             <p className="mt-4 text-base md:text-lg opacity-90 max-w-lg mx-auto">
               Your registration for the{" "}
-              <span className="font-semibold text-[#E77831]">GTC Lucky Draw</span> has been
+              <span className="font-semibold text-[#B68756]">GTC Lucky Draw</span> has been
               successfully received! We’ve sent a confirmation email to your inbox containing your{" "}
               <strong>unique Lucky Number</strong>.
             </p>

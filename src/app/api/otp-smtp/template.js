@@ -17,7 +17,7 @@ const generateEnglishTemplate = (otp, first_name) => {
           <table width="650" cellpadding="0" cellspacing="0" style="border:1px solid #e0e0e0; border-radius:8px;padding:30px; padding-top: 20px; background-color: #182063;">
             <tr>
               <td align="center" style="padding-bottom: 20px;">
-                <img src="https://gtcfx-bucket.s3.ap-southeast-1.amazonaws.com/social/new-logo.webp" alt="GTC Logo" style="width: 160px;" />
+                <img src="https://gtcfx-bucket.s3.ap-southeast-1.amazonaws.com/social/logo-new-golden.png" alt="GTC Logo" style="width: 160px;" />
               </td>
             </tr>
             <tr>
@@ -78,7 +78,7 @@ const generateEnglishTemplate = (otp, first_name) => {
                 <table width="100%" cellpadding="0" cellspacing="0">
                   <tr>
                     <td align="left">
-                      <img src="https://gtcfx-bucket.s3.ap-southeast-1.amazonaws.com/social/new-logo.webp" alt="GTC Logo" style="width: 160px;" />
+                      <img src="https://gtcfx-bucket.s3.ap-southeast-1.amazonaws.com/social/logo-new-golden.png" alt="GTC Logo" style="width: 160px;" />
                     </td>
                     <td align="right" style="font-size: 13px; color: #fff; line-height: 25px;">
                       📞 Phone: +971 800 667788<br/>
