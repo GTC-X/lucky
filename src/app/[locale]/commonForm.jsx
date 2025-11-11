@@ -133,7 +133,7 @@ const CommonMainForm = ({ isMobile = false, setIsSubmitted,
         nickname: Yup.string().required(t("errors.firstNameRequired")),
         mainMt: Yup.string()
             .matches(/^\d{6,7}$/, "MT5 must be 6–7 digits")
-            .required("MT5 account is required"),
+            .required("IB MT Login is required"),
         email: Yup.string()
             .email(t("errors.emailInvalid"))
             .required(t("errors.emailRequired"))
@@ -153,7 +153,8 @@ const CommonMainForm = ({ isMobile = false, setIsSubmitted,
         country: Yup.string().required(t("errors.countryRequired")),
         otp: Yup.string().length(6, t("errors.otpLength")).required(t("errors.otpRequired")),
         terms: Yup.bool().oneOf([true], t("errors.termsRequired")),
-
+        utm_source: Yup.string().max(100),
+        utm_campaign: Yup.string().max(100),
         isAnyone: Yup.string().oneOf(["yes", "no"]).required(),
 
         companionsCount: Yup.number()
@@ -174,9 +175,9 @@ const CommonMainForm = ({ isMobile = false, setIsSubmitted,
                                 first: Yup.string().required("Full name is required"),
                                 last: Yup.string()
                                     .matches(/^\d+$/, "Digits only")
-                                    .min(6, "MT5 must be 6–7 digits")
-                                    .max(7, "MT5 must be 6–7 digits")
-                                    .required("MT5 account is required"),
+                                    .min(6, "IB MT Login must be 6–7 digits")
+                                    .max(7, "IB MT must be 6–7 digits")
+                                    .required("IB MT Login is required"),
                             })
                         )
                         .min(count || 1, "Add names for all companions");
@@ -205,6 +206,9 @@ const CommonMainForm = ({ isMobile = false, setIsSubmitted,
             terms: false,
             // NEW
             mainMt: "",
+            // UTM
+            utm_source: "",
+            utm_campaign: "",
             // NEW
             isAnyone: "no",          // "yes" | "no"
             companionsCount: 0,      // 0..5
@@ -331,6 +335,21 @@ const CommonMainForm = ({ isMobile = false, setIsSubmitted,
         else if (formik.values.companions?.length) formik.setFieldValue("companions", []);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [formik?.values?.isAnyone, formik.values.companionsCount]);
+    
+    useEffect(() => {
+  const src =
+            params.get("utm_source") ||
+            params.get("source") ||
+                ""; // fallback empty if not provided
+            const camp =
+                params.get("utm_campaign") ||
+                params.get("campaign") ||
+                "";
+
+            if (src) formik.setFieldValue("utm_source", src);
+            if (camp) formik.setFieldValue("utm_campaign", camp);
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+            }, [params]);
 
 
     // send OTP
@@ -377,6 +396,10 @@ const CommonMainForm = ({ isMobile = false, setIsSubmitted,
                 <p className="text-xs text-red-600">Please ensure your email and phone number are correct before submitting.
                     Both details will be verified before your lucky number and award are issued.</p>
                 {/* First + Last Name */}
+                <div className="grid grid-cols-1">
+                    <input type="hidden" name="utm_source" value={formik.values.utm_source} />
+                    <input type="hidden" name="utm_campaign" value={formik.values.utm_campaign} />
+                </div>
                 <div className="grid sm:grid-cols-1 gap-4">
                     <div>
                         <label className={`text-sm ${color} mb-1`}>Full Name</label>
